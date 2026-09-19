@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-texto="premiacao.pageTitle">Premiação</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#042751',
+                            blue: '#086EC3',
+                            lime: '#5B9E20',
+                            green: '#1F842C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        /* Efeito de Vidro Minimalista no Header */
+        .header-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header-glass.scrolled {
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            box-shadow: 0 4px 20px -5px rgba(4, 39, 81, 0.08);
+        }
+
+        /* Indicador de link ativo */
+        .nav-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #086EC3;
+            font-weight: 700;
+            background-color: rgba(8, 110, 195, 0.08);
+        }
+
+        /* Fundo com Malha Fina e Brilho Balanceado */
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: radial-gradient(circle, rgba(8, 110, 195, 0.08) 1px, transparent 1px);
+        }
+
+        /* Animação do Ícone Hambúrguer Mobile */
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-open .line-1 {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+
+        .menu-open .line-3 {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+
+    <!-- CABEÇALHO MOCIS -->
+    <header id="main-header" class="header-glass sticky top-0 z-50 w-full bg-white/90 border-b border-slate-200/80 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between gap-4">
+                
+                <!-- Logo & Nome do Evento -->
+                <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue/50 rounded-xl p-1">
+                    <img 
+                        src="../logo.jpeg" 
+                        alt="Logo MOCIS" 
+                        class="h-10 sm:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    >
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg tracking-tight text-brand-navy leading-tight group-hover:text-brand-blue transition-colors" data-texto="global.sigla">
+                            MOCIS
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-brand-blue font-semibold leading-none hidden sm:block" data-texto="global.nome">
+                            Mostra Científica de Inovação e Sustentabilidade
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70">
+                    <a href="../index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inicio">
+                        Início
+                    </a>
+                    <a href="../inscricoes/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inscricoes">
+                        Inscrições
+                    </a>
+                    <a href="../regulamento/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.regulamento">
+                        Regulamento
+                    </a>
+                    <a href="../programacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.programacao">
+                        Programação
+                    </a>
+                    <a href="../projetos/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.projetos">
+                        Projetos
+                    </a>
+                    <a href="../avaliacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.avaliacao">
+                        Avaliação
+                    </a>
+                    <a href="index.html" class="nav-link active px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors" data-texto="nav.premiacao">
+                        Premiação
+                    </a>
+                    <a href="../sobre/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.sobre">
+                        Sobre
+                    </a>
+                    <a href="../contato/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.contato">
+                        Contato
+                    </a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <!-- Botão Hambúrguer Mobile -->
+                    <button 
+                        id="mobile-menu-btn" 
+                        onclick="toggleMobileMenu()" 
+                        type="button" 
+                        aria-label="Menu Principal" 
+                        class="xl:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue flex flex-col justify-center items-center gap-1 w-10 h-10 transition-colors"
+                    >
+                        <span class="hamburger-line line-1 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-2 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-3 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SLIDE-OVER (DRAWER) -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 xl:hidden"></div>
+
+    <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <img src="../logo.jpeg" alt="MOCIS" class="h-7 w-auto rounded">
+                    <span class="font-bold text-sm tracking-tight text-brand-navy" data-texto="global.sigla">MOCIS</span>
+                </div>
+                <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5">
+                <a href="../index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inicio">Início</a>
+                <a href="../inscricoes/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                <a href="../regulamento/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.regulamento">Regulamento</a>
+                <a href="../programacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.programacao">Programação</a>
+                <a href="../projetos/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.projetos">Projetos</a>
+                <a href="../avaliacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.avaliacao">Avaliação</a>
+                <a href="index.html" class="px-3.5 py-2.5 text-sm font-bold text-brand-blue bg-brand-blue/10 rounded-xl" data-texto="nav.premiacao">Premiação</a>
+                <a href="../sobre/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.sobre">Sobre</a>
+                <a href="../contato/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.contato">Contato</a>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 text-center font-medium" data-texto="global.mobileFooter">
+            MOCIS • Mostra Científica de Inovação e Sustentabilidade
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow relative overflow-hidden bg-grid-pattern py-12 sm:py-16">
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            
+            <!-- Cabeçalho da Página -->
+            <div class="text-center sm:text-left">
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-brand-navy tracking-tight" data-texto="premiacao.titulo">
+                    Premiações
+                </h1>
+                <p class="mt-2 text-base text-slate-600 max-w-2xl" data-texto="premiacao.subtitulo">
+                    A MOCIS valoriza o desempenho científico, a dedicação e o protagonismo das equipes participantes por meio de premiações concedidas em cada área do conhecimento.
+                </p>
+            </div>
+
+            <!-- CARDS DE CLASSIFICAÇÃO E CERTIFICADOS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Classificados (1º ao 4º Lugar) -->
+                <div class="bg-white/80 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-brand-blue/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-navy mb-2" data-texto="premiacao.classificacaoTitulo">Classificação Por Área</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed" data-texto="premiacao.classificacaoDescricao">
+                            Serão reconhecidos os projetos classificados do <strong>1º ao 4º lugar</strong> em cada área do conhecimento, de acordo com os resultados do processo de avaliação da Mostra.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certificados para Todos -->
+                <div class="bg-white/80 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-brand-lime/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-lime/10 text-brand-lime flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-navy mb-2" data-texto="premiacao.certificadosTitulo">Certificados e Reconhecimento</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed" data-texto="premiacao.certificadosDescricao">
+                            Todos os alunos e professores participantes receberão <strong>certificado de participação</strong>. As equipes premiadas receberão também <strong>certificado de premiação</strong>, como reconhecimento pelo desempenho alcançado na edição.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SEÇÃO DE CREDENCIAIS (AMPLIAÇÃO E OPORTUNIDADES) -->
+            <div class="bg-white/80 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-sm space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-navy/10 text-brand-navy flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-brand-navy tracking-tight" data-texto="premiacao.credenciaisTitulo">
+                        CREDENCIAIS
+                    </h2>
+                </div>
+
+                <div class="space-y-4 text-base text-slate-600 leading-relaxed">
+                    <p data-texto="premiacao.credenciaisTexto1">
+                        Na atual edição da MOCIS, o evento encontra-se em processo de filiação e aproximação com importantes feiras científicas, com o objetivo de ampliar as oportunidades de credenciamento das equipes de destaque para participação em outros eventos científicos nacionais e internacionais.
+                    </p>
+                    
+                    <div class="p-4 bg-brand-blue/5 border border-brand-blue/20 rounded-xl">
+                        <p class="font-extrabold text-brand-blue text-lg mb-1" data-texto="premiacao.credenciaisDestaque">
+                            Aguardem!!!
+                        </p>
+                        <p class="text-sm text-slate-700" data-texto="premiacao.credenciaisTexto2">
+                            As credenciais, quando disponíveis, serão concedidas conforme os critérios, vagas e regras estabelecidos pelas instituições e eventos parceiros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="border-t border-slate-200 py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-medium">
+            <p data-texto="global.footer">© MOCIS — Mostra Científica de Inovação e Sustentabilidade. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT MINIMALISTA -->
+    <script>
+        // Controle do Menu Mobile (Drawer)
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                btn.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            drawer.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'invisible');
+            btn.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        // Compactar header ao rolar a página
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script src="../textos.js"></script>
+    <script src="../carregar-textos.js"></script>
+</body>
+</html>

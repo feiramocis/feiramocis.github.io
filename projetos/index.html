@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#042751',
+                            blue: '#086EC3',
+                            lime: '#5B9E20',
+                            green: '#1F842C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .header-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header-glass.scrolled {
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            box-shadow: 0 4px 20px -5px rgba(4, 39, 81, 0.08);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #086EC3;
+            font-weight: 700;
+            background-color: rgba(8, 110, 195, 0.08);
+        }
+
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: radial-gradient(circle, rgba(8, 110, 195, 0.08) 1px, transparent 1px);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-open .line-1 {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+
+        .menu-open .line-3 {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+
+    <!-- CABEÇALHO MOCIS -->
+    <header id="main-header" class="header-glass sticky top-0 z-50 w-full bg-white/90 border-b border-slate-200/80 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between gap-4">
+                
+                <!-- Logo & Nome do Evento -->
+                <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue/50 rounded-xl p-1">
+                    <img 
+                        src="../logo.jpeg" 
+                        alt="Logo MOCIS" 
+                        class="h-10 sm:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    >
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg tracking-tight text-brand-navy leading-tight group-hover:text-brand-blue transition-colors">
+                            MOCIS
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-brand-blue font-semibold leading-none hidden sm:block">
+                            Mostra Científica de Inovação e Ciência
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70">
+                    <a href="../index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors">
+                        Início
+                    </a>
+                    <a href="../inscricoes/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors">
+                        Inscrições
+                    </a>
+                    <a href="../regulamento/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors">
+                        Regulamento
+                    </a>
+                    <a href="../programacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors">
+                        Programação
+                    </a>
+                    <a href="index.html" class="nav-link active px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors">
+                        Projetos
+                    </a>
+                    <a href="../avaliacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors">
+                        Avaliação
+                    </a>
+                    <a href="../premiacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors">
+                        Premiação
+                    </a>
+                    <a href="../sobre/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors">
+                        Sobre
+                    </a>
+                    <a href="../contato/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors">
+                        Contato
+                    </a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button 
+                        id="mobile-menu-btn" 
+                        onclick="toggleMobileMenu()" 
+                        type="button" 
+                        aria-label="Menu Principal" 
+                        class="xl:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue flex flex-col justify-center items-center gap-1 w-10 h-10 transition-colors"
+                    >
+                        <span class="hamburger-line line-1 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-2 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-3 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SLIDE-OVER (DRAWER) -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 xl:hidden"></div>
+
+    <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <img src="../logo.jpeg" alt="MOCIS" class="h-7 w-auto rounded">
+                    <span class="font-bold text-sm tracking-tight text-brand-navy">MOCIS</span>
+                </div>
+                <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5">
+                <a href="../index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors">Início</a>
+                <a href="../inscricoes/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors">Inscrições</a>
+                <a href="../regulamento/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors">Regulamento</a>
+                <a href="../programacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors">Programação</a>
+                <a href="index.html" class="px-3.5 py-2.5 text-sm font-bold text-brand-blue bg-brand-blue/10 rounded-xl">Projetos</a>
+                <a href="../avaliacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors">Avaliação</a>
+                <a href="../premiacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors">Premiação</a>
+                <a href="../sobre/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors">Sobre</a>
+                <a href="../contato/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors">Contato</a>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 text-center font-medium">
+            MOCIS • Mostra Científica de Inovação e Ciência
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow relative overflow-hidden bg-grid-pattern py-12 sm:py-16">
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            
+            <!-- Cabeçalho da Página -->
+            <div class="text-center space-y-4">
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-brand-navy tracking-tight">
+                    Projetos
+                </h1>
+                <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto">
+                    Consulte a lista oficial de projetos e confira nossas diretrizes institucionais de proteção de dados.
+                </p>
+            </div>
+
+            <!-- CARD COM O BOTÃO DE ACESSO À LISTA DE PROJETOS -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-12 shadow-sm max-w-lg mx-auto space-y-6 text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+                
+                <div class="space-y-2">
+                    <h2 class="text-xl font-bold text-brand-navy">Lista de Projetos</h2>
+                    <p class="text-sm text-slate-500">Acesse o documento contendo a listagem dos trabalhos.</p>
+                </div>
+
+                <a 
+                    href="#" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="inline-flex items-center justify-center gap-3 w-full px-8 py-4 bg-brand-blue hover:bg-brand-navy text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-brand-blue/20 hover:shadow-brand-navy/20 hover:-translate-y-0.5"
+                >
+                    <span>Acessar Lista de Projetos</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                </a>
+            </div>
+
+            <!-- INFORMAÇÕES DE PRIVACIDADE E LGPD -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-sm space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <h2 class="text-xl sm:text-2xl font-bold text-brand-navy flex items-center gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-brand-blue"></i>
+                        <span>Projetos Selecionados</span>
+                    </h2>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-600 text-justify">
+                    <p>
+                        Em observância à Lei Geral de Proteção de Dados Pessoais — LGPD (Lei nº 13.709/2018), especialmente aos princípios da finalidade, adequação, necessidade, segurança e prevenção previstos em seu art. 6º, a MOCIS adota como política institucional a limitação da exposição pública de dados pessoais de seus participantes. A medida recebe proteção reforçada quando envolve crianças e adolescentes, uma vez que o art. 14 da LGPD determina que o tratamento de seus dados pessoais seja realizado em seu melhor interesse.
+                    </p>
+                    <p>
+                        A proteção também encontra fundamento no Estatuto da Criança e do Adolescente — ECA (Lei nº 8.069/1990), cujo art. 17 assegura a preservação da imagem, da identidade, da autonomia e da integridade moral da criança e do adolescente, bem como no art. 5º, inciso X, da Constituição Federal, que protege a intimidade, a vida privada, a honra e a imagem das pessoas.
+                    </p>
+                    <p>
+                        Por essa razão, os nomes dos estudantes autores, especialmente quando menores de idade, e a identificação pública dos projetos selecionados não serão disponibilizados no site da MOCIS como listagem nominal. O resultado será comunicado diretamente à equipe responsável pela inscrição, por meio dos canais oficiais cadastrados. Os projetos aprovados receberão a Carta de Aceite e o parecer do Comitê Científico da MOCIS, contendo a confirmação da aprovação e as orientações relativas às próximas etapas de participação.
+                    </p>
+                    <p class="pt-3 border-t border-slate-100 font-medium text-slate-700 bg-slate-50/80 p-4 rounded-xl">
+                        <strong class="text-brand-navy block mb-1 font-bold">Importante:</strong>
+                        a legislação não estabelece uma proibição absoluta de divulgar nomes ou títulos de projetos. A não divulgação pública é uma medida institucional de proteção e minimização de dados adotada pela MOCIS, fundamentada nos princípios da LGPD e na proteção especial conferida a crianças e adolescentes.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="border-t border-slate-200 py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-medium">
+            <p>© 2027 MOCIS — Mostra Científica de Inovação e Ciência. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT MINIMALISTA -->
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                btn.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            drawer.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'invisible');
+            btn.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

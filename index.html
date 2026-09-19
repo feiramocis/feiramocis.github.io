@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-texto="home.title">MOCIS - Mostra Científica de Inovação e Ciência</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#042751',
+                            blue: '#086EC3',
+                            lime: '#5B9E20',
+                            green: '#1F842C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .header-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header-glass.scrolled {
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            box-shadow: 0 4px 20px -5px rgba(4, 39, 81, 0.08);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #086EC3;
+            font-weight: 700;
+            background-color: rgba(8, 110, 195, 0.08);
+        }
+
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: radial-gradient(circle, rgba(8, 110, 195, 0.08) 1px, transparent 1px);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-open .line-1 {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+
+        .menu-open .line-3 {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+
+    <!-- CABEÇALHO MOCIS -->
+    <header id="main-header" class="header-glass sticky top-0 z-50 w-full bg-white/90 border-b border-slate-200/80 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between gap-4">
+                
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue/50 rounded-xl p-1">
+                    <img 
+                        src="logo.jpeg" 
+                        alt="Logo MOCIS" 
+                        class="h-10 sm:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    >
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg tracking-tight text-brand-navy leading-tight group-hover:text-brand-blue transition-colors" data-texto="global.sigla">
+                            MOCIS
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-brand-blue font-semibold leading-none hidden sm:block" data-texto="global.nome">
+                            Mostra Científica de Inovação e Ciência
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70">
+                    <a href="index.html" class="nav-link active px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors" data-texto="nav.inicio">
+                        Início
+                    </a>
+                    <a href="inscricoes/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inscricoes">
+                        Inscrições
+                    </a>
+                    <a href="regulamento/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.regulamento">
+                        Regulamento
+                    </a>
+                    <a href="programacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.programacao">
+                        Programação
+                    </a>
+                    <a href="projetos/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.projetos">
+                        Projetos
+                    </a>
+                    <a href="avaliacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.avaliacao">
+                        Avaliação
+                    </a>
+                    <a href="premiacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.premiacao">
+                        Premiação
+                    </a>
+                    <a href="sobre/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.sobre">
+                        Sobre
+                    </a>
+                    <a href="contato/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.contato">
+                        Contato
+                    </a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button 
+                        id="mobile-menu-btn" 
+                        onclick="toggleMobileMenu()" 
+                        type="button" 
+                        aria-label="Menu Principal" 
+                        class="xl:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue flex flex-col justify-center items-center gap-1 w-10 h-10 transition-colors"
+                    >
+                        <span class="hamburger-line line-1 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-2 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-3 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SLIDE-OVER -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 xl:hidden"></div>
+
+    <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <img src="logo.jpeg" alt="MOCIS" class="h-7 w-auto rounded">
+                    <span class="font-bold text-sm tracking-tight text-brand-navy" data-texto="global.sigla">MOCIS</span>
+                </div>
+                <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5">
+                <a href="index.html" class="px-3.5 py-2.5 text-sm font-bold text-brand-blue bg-brand-blue/10 rounded-xl" data-texto="nav.inicio">Início</a>
+                <a href="inscricoes/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                <a href="regulamento/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.regulamento">Regulamento</a>
+                <a href="programacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.programacao">Programação</a>
+                <a href="projetos/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.projetos">Projetos</a>
+                <a href="avaliacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.avaliacao">Avaliação</a>
+                <a href="premiacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.premiacao">Premiação</a>
+                <a href="sobre/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.sobre">Sobre</a>
+                <a href="contato/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.contato">Contato</a>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 text-center font-medium" data-texto="global.mobileFooter">
+            MOCIS • Mostra Científica de Inovação e Ciência
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT / HERO SECTION -->
+    <main class="flex-grow relative flex items-center justify-center overflow-hidden bg-grid-pattern">
+        
+        <!-- SVG Microscópio -->
+        <svg 
+            id="microscope-bg"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 500 500" 
+            class="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-10 w-[420px] xl:w-[520px] 2xl:w-[600px] h-auto opacity-25 pointer-events-none select-none z-0"
+            aria-hidden="true"
+        >
+            <defs>
+                <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#1f587d"/>
+                    <stop offset="40%" stop-color="#2d7fa8"/>
+                    <stop offset="100%" stop-color="#194663"/>
+                </linearGradient>
+                
+                <linearGradient id="armGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2b7199"/>
+                    <stop offset="100%" stop-color="#184360"/>
+                </linearGradient>
+
+                <style>
+                    @keyframes floatSoft {
+                        0%, 100% { transform: translateY(0px) rotate(0deg); }
+                        50% { transform: translateY(-7px) rotate(1.5deg); }
+                    }
+                    @keyframes floatReverse {
+                        0%, 100% { transform: translateY(0px) rotate(0deg); }
+                        50% { transform: translateY(6px) rotate(-1deg); }
+                    }
+                    @keyframes pulseGlow {
+                        0%, 100% { opacity: 0.45; transform: scale(1); }
+                        50% { opacity: 0.85; transform: scale(1.08); }
+                    }
+                    @keyframes lensShine {
+                        0%, 100% { opacity: 0.15; }
+                        50% { opacity: 0.4; }
+                    }
+
+                    .anim-float-1 { animation: floatSoft 6s ease-in-out infinite; transform-origin: center; }
+                    .anim-float-2 { animation: floatReverse 7s ease-in-out infinite; transform-origin: center; }
+                    .anim-pulse { animation: pulseGlow 4s ease-in-out infinite; transform-origin: center; }
+                    .anim-shine { animation: lensShine 3s ease-in-out infinite; }
+                </style>
+            </defs>
+
+            <ellipse cx="180" cy="435" rx="110" ry="12" fill="#aed3e8" opacity="0.5"/>
+
+            <g class="anim-float-1" opacity="0.75">
+                <polyline points="210,120 180,60 290,40" stroke="#7ec2e1" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="180,60 230,170 310,210" stroke="#7ec2e1" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="380,100 330,200 410,270" stroke="#7ec2e1" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <circle cx="290" cy="40" r="14" fill="#88cee8" class="anim-pulse"/>
+                <circle cx="180" cy="60" r="10" fill="#a0dbe8"/>
+                <circle cx="210" cy="120" r="11" fill="#7ec2e1" class="anim-pulse"/>
+                <circle cx="230" cy="170" r="8" fill="#a0dbe8"/>
+                <circle cx="330" cy="200" r="12" fill="#60bada" class="anim-pulse"/>
+
+                <polygon points="410,50 455,76 455,128 410,154 365,128 365,76" fill="#78c9e6" opacity="0.65"/>
+                <polygon points="320,240 355,260 355,300 320,320 285,300 285,260" fill="#91d7ec" opacity="0.5" class="anim-float-2"/>
+                <polygon points="380,330 425,356 425,408 380,434 335,408 335,356" fill="#a0e0f2" opacity="0.45"/>
+            </g>
+
+            <g id="microscope" class="anim-float-2">
+                <path d="M 80,410 L 270,410 C 270,410 275,395 260,385 C 240,372 210,370 175,370 C 140,370 100,372 90,385 C 75,395 80,410 80,410 Z" fill="#184360"/>
+                <path d="M 95,385 C 105,376 135,374 175,374 C 215,374 245,376 255,385 C 262,391 262,400 262,402 L 88,402 C 88,400 88,391 95,385 Z" fill="#225d84"/>
+
+                <rect x="180" y="325" width="22" height="48" rx="2" fill="#14374f"/>
+                
+                <rect x="130" y="320" width="125" height="12" rx="3" fill="#1b4968"/>
+                <rect x="130" y="320" width="125" height="4" rx="1" fill="#3a8bb8"/>
+
+                <path d="M 115,380 C 45,300 55,190 145,150 L 165,182 C 95,210 90,290 145,380 Z" fill="url(#armGrad)"/>
+
+                <circle cx="118" cy="235" r="22" fill="#123046"/>
+                <circle cx="118" cy="235" r="16" fill="#23638a"/>
+                <circle cx="118" cy="235" r="14" fill="#327fae"/>
+                <circle cx="118" cy="235" r="6" fill="#123046"/>
+
+                <g transform="translate(180, 205) rotate(-32)">
+                    <rect x="-10" y="-120" width="20" height="40" rx="2" fill="#163c56"/>
+                    <rect x="-13" y="-128" width="26" height="10" rx="3" fill="#0f2b3e"/>
+                    <rect x="-12" y="-82" width="24" height="18" rx="2" fill="#286c96"/>
+                    <rect x="-22" y="-65" width="44" height="105" rx="5" fill="url(#bodyGrad)"/>
+                    <rect x="-14" y="-65" width="10" height="105" fill="#ffffff" class="anim-shine"/>
+                    <rect x="-22" y="-30" width="44" height="6" fill="#163c56"/>
+                    <path d="M -26,40 L 26,40 L 18,62 L -18,62 Z" fill="#14374f"/>
+                    <rect x="-9" y="62" width="18" height="32" rx="2" fill="#1a4665"/>
+                    <rect x="-11" y="86" width="22" height="6" rx="1" fill="#3782b0"/>
+                    <rect x="-7" y="92" width="14" height="5" fill="#0f2b3e"/>
+                    <rect x="8" y="55" width="14" height="25" rx="2" fill="#123248" transform="rotate(-25 15 65)"/>
+                </g>
+            </g>
+        </svg>
+
+        <img 
+            src="logo.jpeg" 
+            alt="" 
+            aria-hidden="true" 
+            class="absolute -bottom-12 -right-12 sm:-bottom-16 sm:-right-16 w-80 sm:w-96 md:w-[500px] opacity-[0.08] pointer-events-none select-none z-0 object-contain"
+        >
+
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-brand-lime/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-navy/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center flex flex-col items-center justify-center w-full">
+
+            <h1 class="text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tight text-brand-navy leading-none mb-4 select-none" data-texto="home.heroTitle">
+                MOCIS
+            </h1>
+
+            <p class="text-lg sm:text-2xl font-medium text-slate-600 max-w-2xl mx-auto tracking-wide mb-10 leading-relaxed" data-texto="home.heroSubtitle">
+                Mostra Científica de Inovação e Ciência
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 w-full max-w-2xl">
+                <div class="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm backdrop-blur-md transition-all hover:border-brand-lime hover:shadow-md">
+                    <div class="p-2.5 bg-brand-lime/15 text-brand-green rounded-xl text-base font-bold">
+                        <i class="fa-regular fa-calendar-days"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-[10px] uppercase font-extrabold tracking-wider text-slate-400" data-texto="home.cardDataLabel">Data do Evento</span>
+                        <span class="text-xs sm:text-sm font-bold text-brand-navy" data-texto="home.cardDataValue">10 a 12 de Setembro de 2027</span>
+                    </div>
+                </div>
+
+                <div class="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm backdrop-blur-md transition-all hover:border-brand-blue hover:shadow-md">
+                    <div class="p-2.5 bg-brand-blue/15 text-brand-blue rounded-xl text-base font-bold">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-[10px] uppercase font-extrabold tracking-wider text-slate-400" data-texto="home.cardLocalLabel">Local do Evento</span>
+                        <span class="text-xs sm:text-sm font-bold text-brand-navy" data-texto="home.cardLocalValue">Centro de Eventos - Cidade/CE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões Hero -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md">
+                <a 
+                    href="inscricoes/index.html" 
+                    class="w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-brand-blue hover:bg-brand-navy rounded-xl shadow-lg shadow-brand-blue/25 hover:shadow-brand-navy/30 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2.5"
+                >
+                    <span data-texto="home.btnInscreva">Inscreva seu projeto</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+
+                <a 
+                    href="regulamento/index.html" 
+                    class="w-full sm:w-auto px-8 py-4 text-sm font-bold text-brand-navy bg-white hover:bg-slate-100 border-2 border-brand-navy/20 hover:border-brand-navy rounded-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2.5 shadow-sm"
+                >
+                    <i class="fa-regular fa-file-lines text-xs text-brand-lime"></i>
+                    <span data-texto="home.btnRegulamento">Veja o regulamento</span>
+                </a>
+            </div>
+
+            <!-- Cards Informativos -->
+            <div class="mt-16 sm:mt-24 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+          
+                <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-brand-navy transition-all duration-300 group flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-navy/10 text-brand-navy rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-brand-navy group-hover:text-white transition-all">
+                            <i class="fa-solid fa-users text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-navy mb-2" data-texto="home.card1Titulo">Quem pode participar?</h3>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed" data-texto="home.card1Descricao">
+                            Estudantes do Ensino Fundamental, Médio, Técnico e Superior de escolas públicas e privadas.
+                        </p>
+                    </div>
+                    <a href="sobre/index.html" class="inline-flex items-center text-xs font-bold text-brand-navy hover:text-brand-blue">
+                        <span data-texto="home.card1Link">Saber mais</span>
+                        <i class="fa-solid fa-chevron-right text-[10px] ml-1.5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-brand-lime transition-all duration-300 group flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-lime/15 text-brand-green rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-brand-lime group-hover:text-white transition-all">
+                            <i class="fa-solid fa-lightbulb text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-navy mb-2" data-texto="home.card2Titulo">Áreas do conhecimento</h3>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed" data-texto="home.card2Descricao">
+                            Exatas, Biológicas, Engenharias, Humanas, Saúde, Agrárias e Sociais Aplicadas.
+                        </p>
+                    </div>
+                    <a href="regulamento/index.html#areas" class="inline-flex items-center text-xs font-bold text-brand-green hover:text-brand-lime">
+                        <span data-texto="home.card2Link">Ver categorias</span>
+                        <i class="fa-solid fa-chevron-right text-[10px] ml-1.5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-brand-blue transition-all duration-300 group flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-blue/10 text-brand-blue rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-calendar-check text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-navy mb-2" data-texto="home.card3Titulo">Principais datas</h3>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed" data-texto="home.card3Descricao">
+                            Acompanhe o cronograma de submissões, homologação dos trabalhos e os dias de feira.
+                        </p>
+                    </div>
+                    <a href="programacao/index.html" class="inline-flex items-center text-xs font-bold text-brand-blue hover:underline">
+                        <span data-texto="home.card3Link">Ver cronograma</span>
+                        <i class="fa-solid fa-chevron-right text-[10px] ml-1.5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-brand-green transition-all duration-300 group flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-green/10 text-brand-green rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-brand-green group-hover:text-white transition-all">
+                            <i class="fa-solid fa-trophy text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-navy mb-2" data-texto="home.card4Titulo">Premiação</h3>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed" data-texto="home.card4Descricao">
+                            Medalhas, troféus, bolsas de pesquisa e credenciamentos para eventos nacionais e internacionais.
+                        </p>
+                    </div>
+                    <a href="premiacao/index.html" class="inline-flex items-center text-xs font-bold text-brand-green hover:text-brand-lime">
+                        <span data-texto="home.card4Link">Ver prêmios</span>
+                        <i class="fa-solid fa-chevron-right text-[10px] ml-1.5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="border-t border-slate-200 py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-medium">
+            <p data-texto="global.footer">© 2027 MOCIS — Mostra Científica de Inovação e Ciência. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                btn.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            drawer.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'invisible');
+            btn.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script src="textos.js"></script>
+    <script src="carregar-textos.js"></script>
+</body>
+</html>

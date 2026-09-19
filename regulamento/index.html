@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-texto="regulamento.pageTitle">Regulamento</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#042751',
+                            blue: '#086EC3',
+                            lime: '#5B9E20',
+                            green: '#1F842C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .header-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header-glass.scrolled {
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            box-shadow: 0 4px 20px -5px rgba(4, 39, 81, 0.08);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #086EC3;
+            font-weight: 700;
+            background-color: rgba(8, 110, 195, 0.08);
+        }
+
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: radial-gradient(circle, rgba(8, 110, 195, 0.08) 1px, transparent 1px);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-open .line-1 {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+
+        .menu-open .line-3 {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+
+    <!-- CABEÇALHO MOCIS -->
+    <header id="main-header" class="header-glass sticky top-0 z-50 w-full bg-white/90 border-b border-slate-200/80 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between gap-4">
+                
+                <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue/50 rounded-xl p-1">
+                    <img 
+                        src="../logo.jpeg" 
+                        alt="Logo MOCIS" 
+                        class="h-10 sm:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    >
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg tracking-tight text-brand-navy leading-tight group-hover:text-brand-blue transition-colors" data-texto="global.sigla">
+                            MOCIS
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-brand-blue font-semibold leading-none hidden sm:block" data-texto="global.nome">
+                            Mostra Científica de Inovação e Sustentabilidade
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70">
+                    <a href="../index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inicio">Início</a>
+                    <a href="../inscricoes/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                    <a href="index.html" class="nav-link active px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors" data-texto="nav.regulamento">Regulamento</a>
+                    <a href="../programacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.programacao">Programação</a>
+                    <a href="../projetos/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.projetos">Projetos</a>
+                    <a href="../avaliacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.avaliacao">Avaliação</a>
+                    <a href="../premiacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.premiacao">Premiação</a>
+                    <a href="../sobre/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.sobre">Sobre</a>
+                    <a href="../contato/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.contato">Contato</a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button 
+                        id="mobile-menu-btn" 
+                        onclick="toggleMobileMenu()" 
+                        type="button" 
+                        aria-label="Menu Principal" 
+                        class="xl:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue flex flex-col justify-center items-center gap-1 w-10 h-10 transition-colors"
+                    >
+                        <span class="hamburger-line line-1 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-2 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-3 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SLIDE-OVER -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 xl:hidden"></div>
+
+    <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <img src="../logo.jpeg" alt="MOCIS" class="h-7 w-auto rounded">
+                    <span class="font-bold text-sm tracking-tight text-brand-navy" data-texto="global.sigla">MOCIS</span>
+                </div>
+                <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5">
+                <a href="../index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inicio">Início</a>
+                <a href="../inscricoes/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                <a href="index.html" class="px-3.5 py-2.5 text-sm font-bold text-brand-blue bg-brand-blue/10 rounded-xl" data-texto="nav.regulamento">Regulamento</a>
+                <a href="../programacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.programacao">Programação</a>
+                <a href="../projetos/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.projetos">Projetos</a>
+                <a href="../avaliacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.avaliacao">Avaliação</a>
+                <a href="../premiacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.premiacao">Premiação</a>
+                <a href="../sobre/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.sobre">Sobre</a>
+                <a href="../contato/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.contato">Contato</a>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 text-center font-medium" data-texto="global.mobileFooter">
+            MOCIS • Mostra Científica de Inovação e Sustentabilidade
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow relative overflow-hidden bg-grid-pattern py-12 sm:py-16">
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Cabeçalho da Página -->
+            <div class="mb-8 text-center sm:text-left flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                <div>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-brand-navy tracking-tight" data-texto="regulamento.titulo">
+                        Regulamento Geral
+                    </h1>
+                    <p class="mt-2 text-base text-slate-600 max-w-3xl" data-texto="regulamento.subtitulo">
+                        Confira as diretrizes, elegibilidade, normas de submissão, critérios de avaliação e conduta da MOCIS.
+                    </p>
+                </div>
+
+                <!-- Botão de Download do Regulamento Atualizado -->
+                <div class="flex-shrink-0">
+                    <a 
+                        href="regulamento.pdf" 
+                        download="Regulamento_MOCIS_2026.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-blue hover:bg-brand-navy text-white text-sm font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 w-full sm:w-auto"
+                    >
+                        <i class="fa-solid fa-file-arrow-down text-base"></i>
+                        <span>Baixar Regulamento em PDF</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CONTAINER DO TEXTO REGULAMENTO -->
+            <div class="bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-sm">
+                <div class="prose max-w-none font-sans text-slate-700 text-sm sm:text-base leading-relaxed space-y-6">
+
+                    <div class="border-b border-slate-200 pb-4 text-center sm:text-left">
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-brand-navy tracking-tight">
+                            REGULAMENTO GERAL DA MOSTRA CIENTÍFICA DE INOVAÇÃO E SUSTENTABILIDADE — MOCIS
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-2">
+                            A Comissão Organizadora da Mostra Científica de Inovação e Sustentabilidade — MOCIS torna público o presente Regulamento Geral, que disciplina a inscrição, a habilitação, a submissão, a avaliação, a participação, a apresentação, a premiação e, quando aplicável, a seleção de projetos para indicação a eventos científicos parceiros, observadas as normas deste instrumento e os atos complementares oficialmente publicados.
+                        </p>
+                    </div>
+
+                    <!-- TÍTULO I -->
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO I — DAS DISPOSIÇÕES GERAIS</h3>
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — DA NATUREZA, FINALIDADE E ABRANGÊNCIA</h4>
+                        
+                        <p><strong>Art. 1º</strong> A Mostra Científica de Inovação e Sustentabilidade — MOCIS é evento científico e educacional realizado integralmente em ambiente virtual, pelo primeiro ano consecutivo, destinado à apresentação, avaliação e difusão de projetos de investigação científica, engenharia, desenvolvimento tecnológico, inovação e sustentabilidade.</p>
+                        
+                        <p><strong>Art. 2º</strong> A MOCIS será regida por este Regulamento, pelo edital específico de cada edição, pelo cronograma oficial, pelos formulários, comunicados e orientações expedidos pela Comissão Organizadora, os quais possuirão caráter complementar e vinculante desde que publicados pelos canais oficiais.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> Nenhum comunicado informal, mensagem privada ou orientação emitida por pessoa não autorizada poderá modificar as regras deste Regulamento ou do edital da edição.</p>
+                        
+                        <p><strong>Art. 3º</strong> Constituem finalidades da MOCIS incentivar a cultura investigativa, promover o protagonismo estudantil, estimular a criatividade e a inovação, fortalecer a comunicação científica, ampliar a formação ética em pesquisa e favorecer a proposição de soluções cientificamente fundamentadas para problemas sociais, ambientais, econômicos e tecnológicos.</p>
+                        
+                        <p><strong>Art. 4º</strong> A inscrição implica ciência e aceitação integral deste Regulamento e dos documentos complementares vigentes, sem prejuízo da necessidade de autorização do responsável legal nos casos em que o participante for menor de idade.</p>
+                        
+                        <p><strong>Art. 5º</strong> O canal oficial de contato da MOCIS é o endereço eletrônico <strong>feiramocis@gmail.com</strong>, sem prejuízo de outros canais que venham a ser formalmente divulgados pela Comissão Organizadora.</p>
+                    </div>
+
+                    <!-- TÍTULO II -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO II — DOS PARTICIPANTES, DA ELEGIBILIDADE E DA COMPOSIÇÃO DAS EQUIPES</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — DOS REQUISITOS DOS ESTUDANTES</h4>
+                        <p><strong>Art. 6º</strong> Poderão participar da MOCIS os estudantes que atendam aos critérios de escolaridade, idade, origem territorial e demais condições de elegibilidade fixadas neste Regulamento.</p>
+                        <p><strong>Art. 7º</strong> Serão considerados elegíveis os estudantes regularmente matriculados, durante o período de desenvolvimento do projeto, no 8º ou 9º ano do Ensino Fundamental, no Ensino Médio ou no Ensino Técnico, em instituição pública ou privada admitida pelas regras da edição.</p>
+                        <p><strong>Art. 8º</strong> O estudante deverá possuir pelo menos 12 (doze) anos completos antes do início do desenvolvimento do projeto e limite máximo de idade de 20 (vinte) anos.</p>
+                        <p><strong>Art. 9º</strong> Todos os integrantes de uma equipe deverão, individualmente, cumprir os requisitos de idade e escolaridade. A diferença de idade, série ou etapa entre os integrantes não impedirá a participação quando todos forem elegíveis e não houver restrição adicional oficialmente estabelecida para a edição.</p>
+                        <p><strong>Art. 10.</strong> A Comissão Organizadora poderá exigir declaração de matrícula, documento oficial de identificação, declaração da escola ou outro documento idôneo para comprovação da data de nascimento, etapa de ensino, vínculo escolar, município, Unidade da Federação ou condição necessária à habilitação.</p>
+                        <p><strong>Art. 11.</strong> Informações falsas, adulteradas, omitidas ou materialmente inconsistentes sobre idade, data de nascimento, escola de origem, etapa de ensino, autoria ou condição de participação constituirão infração grave, sem prejuízo de eventual comunicação à instituição de origem e de aplicação das medidas previstas neste Regulamento.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO II — DA COMPOSIÇÃO DOS PROJETOS, ORIENTAÇÃO E COORIENTAÇÃO</h4>
+                        <p><strong>Art. 12.</strong> Cada projeto poderá ser desenvolvido individualmente ou por grupo de, no máximo, 3 (três) estudantes autores, vedada a inclusão de integrante meramente nominal, sem contribuição efetiva para o desenvolvimento e para a defesa do trabalho.</p>
+                        <p><strong>Art. 13.</strong> Todo projeto deverá contar com a orientação de um adulto que atenda aos requisitos de idade e qualificação estabelecidos pela edição; o orientador deverá possuir mais de 21 (vinte e um) anos completos no marco temporal.</p>
+                        <p><strong>Art. 14.</strong> Será admitida a participação de coorientador quando prevista no edital, desde que possua pelo menos 18 (dezoito) anos completos no marco temporal exigido, além de ter concluído o Ensino Médio ou Técnico.</p>
+                        <p><strong>Art. 15.</strong> O orientador e o coorientador deverão exercer função de acompanhamento, aconselhamento, supervisão ética e metodológica e apoio à segurança, sem substituir a autoria intelectual, a execução, a análise crítica ou a apresentação dos estudantes.</p>
+                        <p><strong>Art. 16.</strong> A relação definitiva de estudantes autores, orientador e coorientador deverá ser informada no ato da submissão. Alterações posteriores somente poderão ocorrer em hipótese excepcional, devidamente justificada e expressamente autorizada pela Comissão Organizadora.</p>
+                    </div>
+
+                    <!-- SEÇÃO: ÁREAS E CATEGORIAS (ÂNCORA DIRECTA: #areas) -->
+                    <div id="areas" class="space-y-4 pt-6 border-t border-slate-200 scroll-mt-28">
+                        <h3 class="text-xl font-extrabold text-brand-navy border-b border-brand-blue/20 pb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-shapes text-brand-blue text-lg"></i>
+                            <span>Áreas e Categorias</span>
+                        </h3>
+
+                        <p>Os projetos inscritos na Mostra Científica de Inovação e Sustentabilidade — MOCIS deverão ser enquadrados em uma das áreas do conhecimento previstas para a edição, considerando o tema central, os objetivos, a metodologia e a natureza predominante da pesquisa desenvolvida.</p>
+
+                        <p>A organização das categorias da MOCIS segue, como referência, a estrutura adotada pela FEBRACE para projetos de Ciências e Engenharia, sem subdivisão em subáreas. Atualmente, a FEBRACE organiza os projetos em sete grandes categorias.</p>
+
+                        <div class="bg-brand-blue/5 border border-brand-blue/20 rounded-2xl p-5 my-4">
+                            <p class="font-bold text-brand-navy mb-3 text-base">As categorias da MOCIS são:</p>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-sm font-semibold text-brand-blue">
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-200/80 shadow-sm"><i class="fa-solid fa-seedling text-brand-lime"></i> Ciências Agrárias</li>
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-200/80 shadow-sm"><i class="fa-solid fa-dna text-brand-blue"></i> Ciências Biológicas</li>
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-200/80 shadow-sm"><i class="fa-solid fa-heart-pulse text-red-500"></i> Ciências da Saúde</li>
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-200/80 shadow-sm"><i class="fa-solid fa-calculator text-indigo-500"></i> Ciências Exatas e da Terra</li>
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-200/80 shadow-sm"><i class="fa-solid fa-users text-amber-500"></i> Ciências Humanas</li>
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-200/80 shadow-sm"><i class="fa-solid fa-briefcase text-teal-600"></i> Ciências Sociais Aplicadas</li>
+                                <li class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-200/80 shadow-sm"><i class="fa-solid fa-gears text-slate-600"></i> Engenharia</li>
+                            </ul>
+                        </div>
+
+                        <p>Projetos de caráter interdisciplinar também são bem-vindos. Nesses casos, a equipe deverá selecionar a categoria que melhor represente o enfoque principal da pesquisa, considerando o problema investigado e a área em que se concentra sua maior contribuição científica ou tecnológica. Esse princípio também é utilizado pela FEBRACE para o enquadramento de projetos multidisciplinares.</p>
+
+                        <p>O enquadramento indicado no momento da inscrição poderá ser revisto pela Comissão Organizadora quando necessário para garantir a adequada distribuição dos projetos e sua avaliação por profissionais com formação compatível.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 shadow-sm space-y-1">
+                                <h4 class="font-bold text-brand-navy text-base">Ciências Agrárias</h4>
+                                <p class="text-xs sm:text-sm text-slate-600">Reúne pesquisas relacionadas à produção agrícola e animal, ao uso e conservação dos recursos naturais, aos alimentos e ao desenvolvimento de soluções voltadas ao campo e às atividades agropecuárias.</p>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 shadow-sm space-y-1">
+                                <h4 class="font-bold text-brand-navy text-base">Ciências Biológicas</h4>
+                                <p class="text-xs sm:text-sm text-slate-600">Abrange estudos relacionados aos seres vivos, seus organismos, estruturas, funcionamento, evolução e interação com o ambiente.</p>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 shadow-sm space-y-1">
+                                <h4 class="font-bold text-brand-navy text-base">Ciências da Saúde</h4>
+                                <p class="text-xs sm:text-sm text-slate-600">Compreende projetos relacionados à saúde humana, qualidade de vida, prevenção de doenças, promoção da saúde e desenvolvimento de soluções voltadas ao bem-estar das pessoas e das comunidades.</p>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 shadow-sm space-y-1">
+                                <h4 class="font-bold text-brand-navy text-base">Ciências Exatas e da Terra</h4>
+                                <p class="text-xs sm:text-sm text-slate-600">Engloba pesquisas que investigam fenômenos matemáticos, físicos, químicos, computacionais, ambientais e relacionados à Terra e ao universo.</p>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 shadow-sm space-y-1">
+                                <h4 class="font-bold text-brand-navy text-base">Ciências Humanas</h4>
+                                <p class="text-xs sm:text-sm text-slate-600">Reúne estudos dedicados à compreensão do ser humano, da sociedade, da cultura, da educação, do comportamento e dos processos históricos e sociais.</p>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 shadow-sm space-y-1">
+                                <h4 class="font-bold text-brand-navy text-base">Ciências Sociais Aplicadas</h4>
+                                <p class="text-xs sm:text-sm text-slate-600">Abrange pesquisas relacionadas à organização da sociedade e às suas atividades práticas, incluindo temas ligados à gestão, economia, comunicação, direito, planejamento, informação e desenvolvimento social.</p>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 shadow-sm space-y-1 md:col-span-2">
+                                <h4 class="font-bold text-brand-navy text-base">Engenharia</h4>
+                                <p class="text-xs sm:text-sm text-slate-600">Compreende projetos voltados à criação, desenvolvimento, construção, aperfeiçoamento ou teste de soluções para problemas práticos, podendo envolver produtos, protótipos, equipamentos, processos, sistemas ou tecnologias.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TÍTULO III -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO III — DOS PROJETOS E DA DOCUMENTAÇÃO CIENTÍFICA</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — DOS REQUISITOS DO PROJETO</h4>
+                        <p><strong>Art. 17.</strong> O projeto submetido deverá demonstrar processo investigativo ou de engenharia identificável, autoria estudantil efetiva e coerência entre problema, objetivos, metodologia, desenvolvimento, resultados, análise e conclusões, considerados o estágio de formação dos estudantes e a natureza da área do conhecimento.</p>
+                        <p><strong>Art. 18.</strong> O projeto deverá enquadrar-se em área das Ciências ou das Engenharias admitida no edital da edição. A Comissão Organizadora poderá reenquadrar a área declarada quando necessário à composição adequada da banca, sem modificar o conteúdo científico do projeto.</p>
+                        <p><strong>Art. 19.</strong> Serão admitidos projetos de pesquisa científica, projetos de engenharia, desenvolvimento tecnológico, inovação ou investigação interdisciplinar, desde que apresentem fundamentação, método, registros e evidências suficientes para avaliação.</p>
+                        <p><strong>Art. 20.</strong> Projetos de continuidade deverão distinguir, de forma expressa, a fase atual das etapas executadas em períodos anteriores, identificando resultados preexistentes, modificações metodológicas, novas variáveis, novos testes e contribuições efetivamente realizadas pelos estudantes na fase submetida.</p>
+                        <p><strong>Art. 21.</strong> É vedada a submissão de trabalho que consista exclusivamente em compilação bibliográfica sem processo investigativo próprio, reprodução de experimento conhecido sem contribuição de aprendizagem ou análise, propaganda comercial, demonstração de produto sem investigação ou conteúdo produzido substancialmente por terceiros em substituição aos estudantes.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO II — DOS DOCUMENTOS DO PROJETO</h4>
+                        <p><strong>Art. 22.</strong> A documentação da pesquisa deverá ser produzida de forma compatível com a natureza do projeto e poderá compreender plano de pesquisa, resumo, relatório ou artigo científico, diário de bordo ou caderno de campo, materiais de apresentação e formulários específicos de ética e segurança.</p>
+                        <p><strong>Art. 23.</strong> O plano de pesquisa deverá ser elaborado antes da execução das atividades a que se refere e deverá conter, conforme aplicável, problema ou questão de pesquisa, hipótese ou objetivo, justificativa, fundamentação, metodologia, riscos, cronograma e referências.</p>
+                        <p><strong>Art. 24.</strong> O relatório ou artigo deverá registrar de maneira clara o que foi efetivamente realizado pelos estudantes, distinguindo contribuições externas e descrevendo metodologia, dados, resultados, limitações, análise e conclusões, com referências às fontes utilizadas.</p>
+                        <p><strong>Art. 25.</strong> O diário de bordo ou caderno de campo deverá registrar o desenvolvimento do projeto ao longo do tempo, incluindo decisões, testes, falhas, alterações metodológicas, observações, dados relevantes e atividades realizadas, de forma compatível com a rastreabilidade da pesquisa.</p>
+                        <p><strong>Art. 26.</strong> A Comissão Organizadora poderá publicar modelos, limites de páginas, formatos digitais, padrões de nomenclatura, prazos e demais requisitos de submissão em ato complementar, que passará a integrar este Regulamento para a respectiva edição.</p>
+                    </div>
+
+                    <!-- TÍTULO IV -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO IV — DA INTEGRIDADE CIENTÍFICA, ÉTICA, SEGURANÇA E INTELIGÊNCIA ARTIFICIAL</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — DA INTEGRIDADE CIENTÍFICA E AUTORIA</h4>
+                        <p><strong>Art. 27.</strong> Todos os participantes deverão observar os princípios de honestidade, transparência, rastreabilidade, respeito à autoria, fidelidade dos dados e responsabilidade na comunicação científica.</p>
+                        <p><strong>Art. 28.</strong> É vedada a fabricação ou falsificação de dados, manipulação enganosa de imagens ou resultados, plágio, apropriação indevida de autoria, compra de trabalho, omissão intencional de fonte, adulteração documental ou apresentação de atividade de terceiro como produção própria.</p>
+                        <p><strong>Art. 29.</strong> Todo conteúdo de terceiro utilizado no projeto deverá ser identificado e adequadamente referenciado, inclusive textos, imagens, vídeos, códigos, bases de dados, metodologias, instrumentos, gráficos, modelos, softwares e materiais provenientes da internet.</p>
+                        <p><strong>Art. 30.</strong> A Comissão Organizadora poderá empregar procedimentos de verificação de similaridade, análise documental, entrevista, conferência de diário de bordo, solicitação de arquivos-fonte ou outros meios razoáveis para verificar autoria e integridade acadêmica.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO II — DO USO DE INTELIGÊNCIA ARTIFICIAL</h4>
+                        <p><strong>Art. 31.</strong> O uso de ferramentas de inteligência artificial generativa será admitido somente como recurso de apoio, de forma transparente, não podendo substituir a autoria intelectual, a coleta de dados primários, a análise crítica, a formulação substancial das conclusões ou a experimentação realizada pelos estudantes.</p>
+                        <p><strong>Art. 32.</strong> Quando utilizada inteligência artificial generativa, os estudantes deverão declarar a ferramenta, a finalidade, a etapa de utilização e a forma de verificação humana das saídas relevantes, sempre que esse uso tiver impacto no conteúdo submetido.</p>
+                        <p><strong>Art. 33.</strong> O uso não declarado ou indevido de inteligência artificial para gerar conteúdo substancial do projeto, fabricar dados, hipóteses, resultados, referências, imagens científicas enganosas ou conclusões poderá ser tratado como violação de integridade e sujeitar o projeto às penalidades previstas neste Regulamento.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO III — DA ÉTICA E SEGURANÇA DA PESQUISA</h4>
+                        <p><strong>Art. 34.</strong> Todo projeto deverá respeitar a legislação aplicável e adotar medidas de segurança proporcionais aos riscos envolvidos, protegendo estudantes, participantes humanos, animais, meio ambiente, patrimônio e comunidade.</p>
+                        <p><strong>Art. 35.</strong> Pesquisas envolvendo seres humanos, dados pessoais sensíveis, animais vertebrados, agentes biológicos, microrganismos, substâncias químicas, materiais potencialmente perigosos, equipamentos de risco ou procedimentos regulados somente poderão ser executadas quando cumpridas previamente as autorizações, consentimentos, supervisões e revisões exigíveis.</p>
+                        <p><strong>Art. 36.</strong> Pesquisas com participação humana deverão adotar consentimento livre e esclarecido quando aplicável, proteção da privacidade, minimização de riscos, respeito à voluntariedade e autorização de responsável legal quando exigida.</p>
+                        <p><strong>Art. 37.</strong> É vedada a exposição, durante a apresentação on-line, de demonstração que gere risco desnecessário ou incentive conduta insegura, inclusive manipulação ao vivo de substância perigosa, chama, material biológico, equipamento sem proteção, arma, explosivo, agente tóxico ou procedimento incompatível com a segurança dos participantes.</p>
+                        <p><strong>Art. 38.</strong> A MOCIS poderá constituir Comissão de Revisão Científica, Ética e Segurança para verificar projetos sujeitos a controle especial e poderá exigir adequações, documentos, interrupção de atividade de risco ou indeferimento da submissão quando houver irregularidade não sanável.</p>
+                    </div>
+
+                    <!-- TÍTULO V -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO V — DA INSCRIÇÃO, HABILITAÇÃO E SUBMISSÃO</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — DA INSCRIÇÃO</h4>
+                        <p><strong>Art. 39.</strong> A inscrição será realizada pelo meio eletrônico definido no edital e somente será considerada concluída após o preenchimento dos campos obrigatórios, o aceite dos termos aplicáveis e o envio dos documentos exigidos dentro do prazo.</p>
+                        <p><strong>Art. 40.</strong> O responsável pela inscrição deverá informar dados verdadeiros, completos e atualizados dos estudantes, orientador, coorientador, escola e projeto, bem como manter endereço eletrônico válido para comunicações oficiais.</p>
+                        <p><strong>Art. 41.</strong> A Comissão Organizadora poderá solicitar, para fins de habilitação, documentos comprobatórios da idade, matrícula, escola, residência ou origem territorial, autorização do responsável, integridade, ética, segurança e autoria.</p>
+                        <p><strong>Art. 42.</strong> A ausência de documento obrigatório, o envio fora do prazo, a ilegibilidade, a inconsistência material ou o descumprimento dos requisitos de elegibilidade poderão resultar em diligência, indeferimento ou inabilitação, conforme a natureza da irregularidade e o calendário da edição.</p>
+                        <p><strong>Art. 43.</strong> Eventual cobrança de taxa de inscrição ou participação somente poderá ocorrer quando prevista expressamente no edital ou em ato oficial anterior ao encerramento das inscrições, com indicação do valor, forma de pagamento, hipóteses de isenção, restituição e consequências do inadimplemento, se aplicáveis.</p>
+                    </div>
+
+                    <!-- TÍTULO VII -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO VII — DA AVALIAÇÃO CIENTÍFICA, DOS AVALIADORES E DA PREMIAÇÃO</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — DO COMITÊ DE AVALIAÇÃO</h4>
+                        <p><strong>Art. 44.</strong> A avaliação será conduzida por Comitê de Avaliação constituído por pessoas com formação e experiência compatíveis com as áreas dos projetos e selecionadas segundo critérios de qualificação, imparcialidade, confidencialidade e ausência de conflito de interesses.</p>
+                        <p><strong>Art. 45.</strong> Como regra de qualificação mínima, o avaliador deverá possuir especialização concluída em área do conhecimento ou formação profissional equivalente reconhecida pela Comissão Organizadora, admitida a participação de especialista de notório conhecimento quando devidamente justificada.</p>
+                        <p><strong>Art. 46.</strong> Não poderá avaliar determinado projeto quem seja orientador, coorientador, familiar próximo de autor, colaborador direto do trabalho, pessoa com interesse financeiro no resultado, ou mantenha vínculo capaz de comprometer ou aparentar comprometer a imparcialidade da avaliação.</p>
+                        <p><strong>Art. 47.</strong> O avaliador deverá tratar como confidenciais os dados, documentos e informações não públicos a que tiver acesso em razão da função e deverá comunicar imediatamente qualquer potencial impedimento à Comissão Organizadora.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO II — DOS CRITÉRIOS DE AVALIAÇÃO</h4>
+                        <p><strong>Art. 48.</strong> A avaliação do mérito científico observará critérios previamente divulgados e compatíveis com a natureza do projeto, devendo considerar, conforme aplicável, o planejamento, a execução, a inovação, a atitude científica dos estudantes, a criatividade, a clareza e coerência da documentação, a profundidade da análise e a qualidade da apresentação oral.</p>
+                        <p><strong>Art. 49.</strong> No planejamento de pesquisa científica serão observados, entre outros aspectos, a clareza da questão, hipótese ou objetivo, a fundamentação bibliográfica, a adequação dos métodos de coleta, registro e análise de dados, a definição de variáveis quando aplicável e a coerência do cronograma.</p>
+                        <p><strong>Art. 50.</strong> No planejamento de projeto de engenharia serão observados, entre outros aspectos, a clareza do problema, o levantamento de alternativas, a adequação da solução proposta, o planejamento das etapas de prototipagem e teste, os materiais necessários e a viabilidade do desenvolvimento.</p>
+                        <p><strong>Art. 51.</strong> Na execução serão considerados a consistência dos registros, a suficiência dos dados ou testes, a adequação da análise, a relação entre evidências e conclusões, a capacidade de reconhecer limitações e a possibilidade de continuidade do projeto.</p>
+                        <p><strong>Art. 52.</strong> No critério de inovação serão considerados a originalidade da abordagem, a criatividade na solução do problema, a relevância social ou científica e o potencial de contribuição do projeto, sem exigir ineditismo absoluto como condição de mérito.</p>
+                        <p><strong>Art. 53.</strong> Na avaliação dos estudantes serão consideradas a compreensão do próprio projeto, a capacidade de análise crítica, a segurança para explicar decisões e limitações, a participação efetiva de cada autor, a criatividade, a autonomia e a habilidade de responder à arguição.</p>
+                        <p><strong>Art. 54.</strong> Na avaliação dos materiais serão consideradas a clareza, coerência, organização, identificação da contribuição dos estudantes, qualidade das referências, profundidade da análise, adequação da apresentação de dados e correspondência entre documentação e execução efetiva.</p>
+                        <p><strong>Art. 55.</strong> O edital da edição deverá divulgar a escala de pontuação, pesos, critérios de desempate e demais regras necessárias à classificação antes do início da avaliação, vedada a utilização de critério secreto ou alteração retroativa da metodologia de julgamento.</p>
+                        <p><strong>Art. 56.</strong> Critérios de escola, origem, faixa territorial ou composição da equipe somente integrarão a classificação quando previstos expressamente no edital como requisito regional ou de representatividade, devendo permanecer identificáveis e separados dos critérios de mérito científico.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO III — DA PREMIAÇÃO E DOS RESULTADOS</h4>
+                        <p><strong>Art. 57.</strong> As modalidades de premiação, menções, certificados, credenciais e benefícios serão definidas no edital ou em ato oficial da edição, não existindo direito a prêmio não previamente divulgado ou não formalmente concedido.</p>
+                        <p><strong>Art. 58.</strong> A divulgação do resultado deverá observar o cronograma oficial e poderá ser precedida de verificação documental complementar dos projetos classificados ou indicados.</p>
+                        <p><strong>Art. 59.</strong> Constatada irregularidade material após a divulgação, a Comissão Organizadora poderá retificar o resultado, cancelar premiação ou indicação e convocar o projeto subsequente quando houver previsão e viabilidade, assegurada manifestação do interessado sempre que compatível com a urgência e a natureza do caso.</p>
+                    </div>
+
+                    <!-- TÍTULO VIII -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO VIII — DA APRESENTAÇÃO ON-LINE E DAS SESSÕES PELO GOOGLE MEET</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — DO ACESSO À SESSÃO</h4>
+                        <p><strong>Art. 60.</strong> As apresentações oficiais da MOCIS ocorrerão integralmente on-line, por meio da plataforma Google Meet, em data e horário constantes da programação oficial.</p>
+                        <p><strong>Art. 61.</strong> O link de acesso à sessão será encaminhado ao endereço eletrônico cadastrado pelos participantes com antecedência mínima de 72 (setenta e duas) horas da respectiva apresentação.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>§ 1º</em> A equipe deverá conferir o recebimento do link, inclusive pastas de spam ou lixo eletrônico, e comunicar eventual ausência à Organização pelo e-mail oficial com antecedência suficiente para solução.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>§ 2º</em> O link de acesso é destinado aos participantes e pessoas autorizadas da sessão, sendo vedado o seu compartilhamento público ou com terceiros não autorizados.</p>
+                        <p><strong>Art. 62.</strong> O participante deverá acessar a sala virtual com identificação compatível com o cadastro, utilizar equipamento apto à videoconferência e, sempre que possível, testar previamente câmera, microfone, áudio, compartilhamento de tela e conexão à internet.</p>
+                        <p><strong>Art. 63.</strong> A Organização poderá exigir ingresso na sala com antecedência técnica, realizar conferência de identidade, orientar a ordem de apresentação e controlar microfones, câmeras, compartilhamento de tela e permanência de participantes para preservar a regularidade da sessão.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO II — DA APRESENTAÇÃO E ARGUIÇÃO</h4>
+                        <p><strong>Art. 64.</strong> A duração da apresentação, da arguição e eventual tolerância de atraso serão fixadas no edital ou na programação oficial da edição, devendo ser observadas igualmente pelos projetos submetidos à mesma modalidade de avaliação.</p>
+                        <p><strong>Art. 65.</strong> A apresentação deverá ser realizada pelos estudantes autores inscritos, que deverão demonstrar conhecimento do trabalho e responder à banca. Orientadores, coorientadores, responsáveis ou terceiros não poderão responder em substituição aos estudantes.</p>
+                        <p><strong>Art. 66.</strong> Quando o projeto possuir mais de um estudante, todos os autores deverão estar aptos a explicar sua participação e as etapas do trabalho, podendo a banca dirigir perguntas individualizadas para verificar autoria e compreensão.</p>
+                        <p><strong>Art. 67.</strong> A equipe poderá utilizar apresentação de slides, pôster digital, vídeo, demonstração segura de protótipo ou outro material autorizado, desde que o conteúdo seja compatível com o projeto submetido e não viole direitos de terceiros, sigilo, privacidade ou normas de segurança.</p>
+                        <p><strong>Art. 68.</strong> Durante a apresentação de outras equipes, os participantes deverão manter comportamento respeitoso, microfone desativado quando não estiverem falando e abster-se de interrupções, gravações não autorizadas, mensagens ofensivas ou qualquer conduta que comprometa a sessão.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO III — DAS INTERCORRÊNCIAS TÉCNICAS</h4>
+                        <p><strong>Art. 69.</strong> Problemas técnicos deverão ser comunicados imediatamente à mediação da sala ou, quando isso não for possível, ao e-mail oficial da MOCIS, com descrição objetiva do ocorrido.</p>
+                        <p><strong>Art. 70.</strong> Falha comprovadamente atribuível à infraestrutura ou à organização da MOCIS poderá ensejar continuidade, nova tentativa ou remarcação da avaliação, conforme decisão da Comissão Organizadora e disponibilidade do cronograma.</p>
+                        <p><strong>Art. 71.</strong> Falha de equipamento, energia ou conexão sob responsabilidade do participante não assegura automaticamente nova sessão, mas poderá ser analisada pela Comissão Organizadora segundo a boa-fé, a comprovação disponível, a isonomia e a viabilidade de remarcação.</p>
+                    </div>
+
+                    <!-- TÍTULO IX -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO IX — DA CONDUTA, PROTEÇÃO DE DADOS, IMAGEM E PROPRIEDADE INTELECTUAL</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — DA CONDUTA NO AMBIENTE VIRTUAL</h4>
+                        <p><strong>Art. 72.</strong> Todos os participantes deverão manter comportamento compatível com ambiente educacional e científico, sendo vedadas práticas de assédio, discriminação, intimidação, ameaça, exposição indevida, sabotagem, invasão de sala, compartilhamento malicioso de links ou qualquer forma de perturbação intencional.</p>
+                        <p><strong>Art. 73.</strong> A mediação poderá advertir, silenciar, remover da sala ou bloquear participante cuja conduta comprometa a segurança ou a continuidade da sessão, sem prejuízo da apuração posterior da infração.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO II — DA PROTEÇÃO DE DADOS PESSOAIS E IMAGEM</h4>
+                        <p><strong>Art. 74.</strong> O tratamento de dados pessoais realizado pela MOCIS deverá observar a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais) e as demais normas aplicáveis, limitando-se às finalidades legítimas de inscrição, verificação de elegibilidade, avaliação, comunicação, certificação, premiação, indicação, estatística, segurança e gestão do evento.</p>
+                        <p><strong>Art. 75.</strong> Os dados de idade, data de nascimento, escola, série, município, Unidade da Federação, origem e composição da equipe poderão ser utilizados para verificação de elegibilidade, aplicação de critérios officially publicados e cumprimento de obrigações perante a afiliação em eventos, observados os princípios de necessidade e finalidade.</p>
+                        <p><strong>Art. 76.</strong> Participantes menores de idade estarão sujeitos às autorizações de responsável legal exigidas para participação, tratamento de dados, uso de imagem, voz, publicação de materiais e demais atos aplicáveis.</p>
+                        <p><strong>Art. 77.</strong> A gravação, captura ou divulgação de imagem e voz das sessões pela Organização somente ocorrerá mediante base legal ou autorização aplicável e informação prévia aos participantes. É vedado aos demais participantes gravar ou publicar a sessão sem autorização expressa.</p>
+                        <p><strong>Art. 78.</strong> Os participantes deverão evitar a exposição em tela de documentos contendo números de identificação, endereço, telefone, credenciais de acesso, dados de saúde ou outras informações pessoais desnecessárias à avaliação.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO III — DA PROPRIEDADE INTELECTUAL</h4>
+                        <p><strong>Art. 79.</strong> A participação na MOCIS não transfere à Organização direitos de propriedade intelectual sobre invenções, softwares, desenhos, obras, marcas, segredos comerciais ou outros ativos dos participantes, sem prejuízo das autorizações específicas de divulgação que venham a ser concedidas.</p>
+                        <p><strong>Art. 80.</strong> Compete aos autores obter as permissões necessárias para utilização de conteúdo de terceiros e avaliar, antes da divulgação pública, a conveniência de proteger invenção ou criação suscetível de registro, patente ou outra forma de proteção.</p>
+                        <p><strong>Art. 81.</strong> A MOCIS não se responsabiliza por perda de novidade decorrente de divulgação pública voluntariamente realizada pelos autores, ressalvado eventual descumprimento de dever de confidencialidade assumido expressamente pela Organização.</p>
+                    </div>
+
+                    <!-- TÍTULO X -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO X — DAS INFRAÇÕES, MEDIDAS ADMINISTRATIVAS E DESCLASSIFICAÇÃO</h3>
+                        <p><strong>Art. 82.</strong> Constitui infração o descumprimento deste Regulamento, do edital da edição, das normas oficiais de ética, segurança, integridade ou proteção de dados, bem como a prática de ato que comprometa a legitimidade, a segurança ou a igualdade do processo de participação e avaliação.</p>
+                        <p><strong>Art. 83.</strong> Sem prejuízo de outras medidas cabíveis, poderão ensejar advertência, inabilitação, interrupção da apresentação, perda de pontuação, desclassificação, cancelamento de certificado, revogação de premiação ou cancelamento de indicação, conforme a gravidade e o momento da constatação:</p>
+                        <ul class="list-disc pl-6 space-y-1 text-xs sm:text-sm">
+                            <li><strong>I.</strong> a prestação deliberada de informação falsa ou adulterada sobre identidade, idade, escola, série, origem, autoria ou desenvolvimento do projeto;</li>
+                            <li><strong>II.</strong> o plágio, a fabricação ou falsificação de dados, a falsa autoria ou o uso indevido de inteligência artificial;</li>
+                            <li><strong>III.</strong> a violação grave de norma ética ou de segurança;</li>
+                            <li><strong>IV.</strong> a interferência de terceiro na avaliação em substituição aos estudantes;</li>
+                            <li><strong>V.</strong> a prática de fraude na inscrição, avaliação, votação, certificação ou premiação;</li>
+                            <li><strong>VI.</strong> o compartilhamento malicioso de link, sabotagem, invasão ou perturbação intencional de sessão;</li>
+                            <li><strong>VII.</strong> o assédio, a discriminação, a ameaça ou a exposição indevida de participante;</li>
+                            <li><strong>VIII.</strong> o descumprimento de condição obrigatória para indicação à FEBRACE ou de critério regional formalmente incorporado ao edital.</li>
+                        </ul>
+                        <p><strong>Art. 84.</strong> A Comissão Organizadora poderá solicitar esclarecimentos e documentos antes de decidir sobre irregularidade, assegurando manifestação do interessado sempre que a natureza do caso e o cronograma permitirem.</p>
+                        <p><strong>Art. 85.</strong> A constatação de irregularidade após a premiação ou após a indicação poderá resultar na revisão do ato, inclusive comunicação à FEBRACE ou a outra instituição destinatária quando a irregularidade afetar a elegibilidade do projeto indicado.</p>
+                    </div>
+
+                    <!-- TÍTULO XI -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-blue uppercase tracking-wide">TÍTULO XI — DAS COMUNICAÇÕES, DOS CASOS OMISSOS E DA VIGÊNCIA</h3>
+                        <p><strong>Art. 86.</strong> As comunicações oficiais serão realizadas por meio do e-mail informado na inscrição, do site ou página oficial da MOCIS e de outros canais expressamente divulgados, cabendo ao participante acompanhar regularmente as informações da edição.</p>
+                        <p><strong>Art. 87.</strong> O calendário oficial deverá indicar, no mínimo, o período de inscrições, o prazo de submissão, as etapas de habilitação e avaliação, a divulgação dos projetos participantes ou finalistas, as datas de apresentação, a divulgação dos resultados e os demais marcos necessários ao cumprimento deste Regulamento.</p>
+                        <p><strong>Art. 88.</strong> A Comissão Organizadora poderá alterar datas por motivo técnico, força maior, segurança, adequação operacional ou determinação externa aplicável, devendo comunicar a alteração de modo público e com a maior antecedência possível.</p>
+                        <p><strong>Art. 89.</strong> Qualquer edital específico da MOCIS deverá ser interpretado em conjunto com este Regulamento e não poderá afastar requisito obrigatório de elegibilidade, integridade, segurança, afiliação ou indicação previsto em norma superior aplicável ao ciclo da FEBRACE correspondente.</p>
+                        <p><strong>Art. 90.</strong> Este Regulamento entra em vigor na data de sua publicação e permanecerá válido até sua substituição por versão posterior, devendo toda revisão ser identificada por data ou número de versão.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="border-t border-slate-200 py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-medium">
+            <p data-texto="global.footer">© MOCIS — Mostra Científica de Inovação e Sustentabilidade. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT MINIMALISTA -->
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                btn.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            drawer.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'invisible');
+            btn.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script src="../textos.js"></script>
+    <script src="../carregar-textos.js"></script>
+</body>
+</html>
